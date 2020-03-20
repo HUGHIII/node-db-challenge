@@ -52,4 +52,26 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/tasks", (req, res) => {
+  model
+    .getTasks()
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "server error" });
+    });
+});
+
+router.get("/resources", (req, res) => {
+  model
+    .getResources()
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "server error" });
+    });
+});
+
 module.exports = router;
